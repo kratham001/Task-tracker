@@ -2,7 +2,7 @@
 
 A full-stack **MERN** application designed to keep your daily tasks organized, prioritized, and on track. This isn't just a todo list; it's a workspace to visualize your workload by **Status** or **Priority**, giving you clarity at a glance.
 
-**[👉 View Live Demo (Frontend)](INSERT_VERCEL_LINK_HERE)** *(Backend hosted on Render)*
+**[👉 View Live Demo (Frontend)](https://task-tracker-two-hazel.vercel.app/)** *(Backend hosted on Render)*
 
 ---
 
