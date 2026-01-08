@@ -1,42 +1,40 @@
-# Network-Packet-Processing
-Network Packet Processing Using RTOS
+# 📝 Task Tracker
 
-<h2>Overview</h2>
-<p>This project simulates a Network Packet Processing System using FreeRTOS. It demonstrates how to handle network packets in a real-time system, where tasks are responsible for packet reception, processing, and forwarding. The system is implemented in C and built using the FreeRTOS kernel for task management, with communication handled using FreeRTOS queues.</p>
+A full-stack **MERN** application designed to keep your daily tasks organized, prioritized, and on track. This isn't just a todo list; it's a workspace to visualize your workload by **Status** or **Priority**, giving you clarity at a glance.
 
-<h2>Features</h2>
-<p>Packet Reception: Simulates the receipt of network packets from various sources.
-Packet Processing: Processes each packet, modifying its content for forwarding.
-Packet Forwarding: Forwards processed packets to their destination.
-Real-time scheduling and queue-based communication using FreeRTOS.
-Modular code structure with separate tasks for each function (Reception, Processing, Forwarding).</p>
+**[👉 View Live Demo (Frontend)](INSERT_VERCEL_LINK_HERE)** *(Backend hosted on Render)*
 
-<h2>How It Works</h2>
-<p>The project consists of three main tasks, each handling a part of the network packet flow:
+---
 
-Packet Reception Task:
+## ✨ Features
 
-Receives packets from various sources.
-Creates random packets with a source IP, destination IP, and payload.
-Sends received packets to a queue for processing.
-Packet Processing Task:
+* **Create & Manage:** Easily add tasks with titles, descriptions, due dates, and priority levels.
+* **Smart Validation:** The "Add Task" button stays disabled until you fill in the required fields, preventing clutter.
+* **Dynamic Stacking:**
+    * **Stack by Date:** See what's coming up next.
+    * **Stack by Status:** Separate "Pending" from "Completed".
+    * **Stack by Priority:** Focus on "High" priority items first.
+* **Instant Feedback:** Smooth toast notifications (via `react-toastify`) let you know when actions succeed or fail.
+* **Responsive Design:** Built with **Tailwind CSS**, so it looks great on your laptop or phone.
 
-Receives packets from the reception queue.
-Modifies the packet (e.g., increments the source IP).
-Sends the processed packet to a forwarding queue.
-Packet Forwarding Task:
+---
 
-Receives packets from the processing queue.
-Simulates forwarding the packet to the destination.
-Outputs the details of the forwarded packet to the console.</p>
+## 🛠️ Tech Stack
 
-<h2>Customization</h2>
-<p>You can customize the following aspects of the system:
+This project uses the **MERN** stack architecture:
 
-Packet Reception: Modify how packets are generated in reception.c.
-Packet Processing: Implement custom packet handling logic in processing.c.
-Packet Forwarding: Modify the forwarding rules in forwarding.c.</p>
+* **Frontend:** React.js, Tailwind CSS, React Toastify
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB Atlas (Mongoose)
+* **Deployment:** Vercel (Client) + Render (Server)
 
-<h3>By Kartikay Azad</h3>
+---
 
+## 🚀 Getting Started Locally
 
+Follow these steps to get a copy of the project running on your local machine.
+
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/your-username/task-tracker.git](https://github.com/your-username/task-tracker.git)
+cd task-tracker
