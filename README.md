@@ -29,12 +29,35 @@ This project uses the **MERN** stack architecture:
 * **Deployment:** Vercel (Client) + Render (Server)
 
 ---
+## 🌍 Deployment Guide
 
-## 🚀 Getting Started Locally
+This project is set up as a **Monorepo** (containing both `client` and `server` folders), but it is deployed as two separate services.
 
-Follow these steps to get a copy of the project running on your local machine.
+### Part 1: Backend Deployment (Render)
+Hosted on [Render.com](https://render.com) as a Web Service.
 
-### 1. Clone the Repository
-```bash
-git clone [https://github.com/your-username/task-tracker.git](https://github.com/your-username/task-tracker.git)
-cd task-tracker
+1.  **Connect Repo:** Link your GitHub repository.
+2.  **Service Type:** Select "Web Service".
+3.  **Settings:**
+    * **Root Directory:** `server` (Critical step!)
+    * **Runtime:** `Node`
+    * **Build Command:** `npm install`
+    * **Start Command:** `node server.js`
+4.  **Environment Variables:**
+    * Add `MONGO_URI` (Your MongoDB Atlas connection string).
+
+### Part 2: Frontend Deployment (Vercel)
+Hosted on [Vercel.com](https://vercel.com).
+
+1.  **Connect Repo:** Import your GitHub repository.
+2.  **Framework Preset:** Select "Create React App".
+3.  **Root Directory:**
+    * Click "Edit" and select the `client` folder.
+4.  **Environment Variables:**
+    * Add `REACT_APP_API_URL`.
+    * **Value:** The URL provided by Render + `/api/tasks` (e.g., `https://my-api.onrender.com/api/tasks`).
+5.  **Deploy:** Click "Deploy".
+
+---
+
+**Built by Kartikay Azad**
