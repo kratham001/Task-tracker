@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const TaskForm = ({ onTaskAdded, API_BASE }) => {
   const [formData, setFormData] = useState({
@@ -12,14 +13,25 @@ const TaskForm = ({ onTaskAdded, API_BASE }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch(API_BASE, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
-    });
-    const data = await res.json();
-    onTaskAdded(data);
-    setFormData({ title: '', description: '', priority: 'Medium', dueDate: '' });
+    try {
+      const res = await fetch(API_BASE, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      if (!res.ok) throw new Error('Failed to create task');
+
+      const data = await res.json();
+      onTaskAdded(data);
+      toast.success('Task added successfully!');
+      
+      // Clear form
+      setFormData({ title: '', description: '', priority: 'Medium', dueDate: '' });
+    } catch (err) {
+      toast.error('Error adding task. Please try again.');
+      console.error(err);
+    }
   };
 
   return (
